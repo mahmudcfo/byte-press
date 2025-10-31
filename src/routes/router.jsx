@@ -2,11 +2,19 @@ import { createBrowserRouter } from "react-router";
 import HomeLayout from "../layouts/HomeLayout";
 import Home from "../pages/Home";
 import CategoryNews from "../pages/CategoryNews";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import AuthLayout from "../layouts/AuthLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    hydrateFallbackElement: (
+      <div className="min-h-screen flex justify-center items-center">
+        <p className="loading loading-dots loading-xl"></p>
+      </div>
+    ),
     children: [
       {
         path: "",
@@ -21,7 +29,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <h2>Auth Layout</h2>,
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login />,
+      },
+      {
+        path: "/auth/register",
+        element: <Register />,
+      },
+    ],
   },
   {
     path: "/news",

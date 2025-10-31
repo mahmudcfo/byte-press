@@ -44,9 +44,9 @@ const NewsCard = ({ news }) => {
               <>
                 {details.slice(0, 250)}
                 ...
-                <p className="cursor-pointer text-orange-400 font-semibold">
+                <span className="cursor-pointer text-orange-400 font-semibold">
                   Read More
-                </p>
+                </span>
               </>
             ) : (
               details
